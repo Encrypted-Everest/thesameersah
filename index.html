@@ -430,6 +430,36 @@
         });
     </script>
 
+    <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();  // Disable right-click menu
+    });
+    
+    // Disable keyboard shortcuts (Ctrl+U, Ctrl+S)
+    document.addEventListener('keydown', function (e) {
+        // Disable Ctrl + U (View Source)
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+            e.preventDefault();
+        }
+    
+        // Disable Ctrl + S (Save Page)
+        if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+        }
+    
+        // Disable F12 (Inspect Element / DevTools)
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
+    
+    // Disable selecting text
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();  // Disable text selection
+    });
+    </script>
+
 
     
     
