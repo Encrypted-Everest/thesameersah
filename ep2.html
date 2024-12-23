@@ -144,9 +144,42 @@
         }
 
         .bold-dot{
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #e6513a;
 
+        }
+
+        .bold-dot1{
+            font-size: 1.5rem;
+            color: #e6cf3a;
+
+        }
+
+        .telegram-toggle2 {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .telegram-toggle2:hover {
+            background-color: #007ab8;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+        }
+
+        .telegram-toggle2 img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -156,13 +189,24 @@
         <img src="https://x.com/favicon.ico" alt="twitter">
         Follow me on X
     </a>
+
+    <a href="https://x.com/i_sam33r" target="_blank" class="telegram-toggle2">
+        <img src="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000" alt="twitter">
+        &copy; SAMEER    </a>
     <div class="container">
 
         <!-- <h1>HLS Video Player</h1> -->
-        <H6 class="name-autho"> <b class="bold-dot">&copy; SAMEER </b> </H6>
-        <p>Full Screen? Scroll Down...</p>
+        <!-- <H6 class="name-autho"> <b class="bold-dot">&copy; SAMEER </b> </H6>
+        <p>Full Screen? Scroll Down...</p> -->
 
         <div id="player"></div>
+
+        <H6 class="name-autho"> <b class="bold-dot">&copy; SAMEER </b> </H6>
+
+        <H6 class="name-autho"> <b class="bold-dot1"> S1 EPISODE 1 </b> </H6>
+
+
+        <!-- <p>Full Screen? Scroll Down...</p> -->
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -180,8 +224,11 @@
         <form id="videoForm" onsubmit="playVideo(event);">
             <div class="input-group">
                 <i class="fas fa-link"></i>
-                <input type="text" id="link" name="link" placeholder="Enter MPD or HLS link" value="https://i-cdn-0.kioled326aps.com/stream2/i-cdn-0/f74771572f69aeee5c1a895f0da9b756/MJTMsp1RshGTygnMNRUR2N2MSlnWXZEdMNDZzQWe5MDZzMmdZJTO1R2RWVHZDljekhkSsl1VwYnWtx2cihVT2pVbVFjWEJEaOdVWx0EVVRTTUZUaZJjRrlleFhXTXVFeaRkSqllaStmWEVVP:1734947225:103.10.28.198:1075c73ce90318dd3dd5c5c6cec2c5939c97a980017b5fe145fd6b9911134c19/index.m3u8">
+                <input type="text" id="link" name="link" placeholder="Enter MPD or HLS link" value="https://i-cdn-0.kioled326aps.com/stream2/i-cdn-0/f74771572f69aeee5c1a895f0da9b756/MJTMsp1RshGTygnMNRUR2N2MSlnWXZEdMNDZzQWe5MDZzMmdZJTO1R2RWVHZDljekhkSsl1VwYnWtx2cihVT2pVbVFjWEJEaOdVWx0EVVRTTUZUaZJjRrlleFhXTXVFeaRkSqllaStmWEVVP:1734947225:103.10.28.198:1075c73ce90318dd3dd5c5c6cec2c5939c97a980017b5fe145fd6b9911134c19/index.m3u8
+                ">
             </div>
+
+            
 
             <!-- <div class="input-group">
                 <i class="fas fa-key"></i>
@@ -230,6 +277,7 @@
             });
         }
     </script>
+
 
 
 <script>
