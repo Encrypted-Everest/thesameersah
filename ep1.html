@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer Sah >> HLS, M3U8 LIVE Video Player</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=XF1f9oTOPWEa&format=png&color=000000" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 95%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        form {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            border-radius: 8px;
+            padding: 0 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group i {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        body {
+            user-select: none;
+            /* Prevent text selection */
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: transparent;
+            color: #fff;
+            outline: none;
+            font-size: 1rem;
+            box-shadow: none;
+        }
+
+        .input-group input::placeholder {
+            color: #aaa;
+        }
+
+        button {
+            padding: 15px;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        #player {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            background: #000;
+            height: 400px;
+        }
+
+        .telegram-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .telegram-toggle:hover {
+            background-color: #007ab8;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+        }
+
+        .telegram-toggle img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .name-autho {
+            right: 223px;
+        }
+
+        .bold-dot{
+            font-size: 1rem;
+            color: #e6513a;
+
+        }
+
+        .bold-dot1{
+            font-size: 1.5rem;
+            color: #e6cf3a;
+
+        }
+
+        .telegram-toggle2 {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .telegram-toggle2:hover {
+            background-color: #007ab8;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+        }
+
+        .telegram-toggle2 img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://x.com/i_sam33r" target="_blank" class="telegram-toggle">
+        <img src="https://x.com/favicon.ico" alt="twitter">
+        Follow me on X
+    </a>
+
+    <a href="https://x.com/i_sam33r" target="_blank" class="telegram-toggle2">
+        <img src="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000" alt="twitter">
+        &copy; SAMEER    </a>
+    <div class="container">
+
+        <!-- <h1>HLS Video Player</h1> -->
+        <!-- <H6 class="name-autho"> <b class="bold-dot">&copy; SAMEER </b> </H6>
+        <p>Full Screen? Scroll Down...</p> -->
+
+        <div id="player"></div>
+
+        <H6 class="name-autho"> <b class="bold-dot">&copy; SAMEER </b> </H6>
+
+        <H6 class="name-autho"> <b class="bold-dot1"> S1 EPISODE 1 </b> </H6>
+
+
+        <!-- <p>Full Screen? Scroll Down...</p> -->
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <form id="videoForm" onsubmit="playVideo(event);">
+            <div class="input-group">
+                <i class="fas fa-link"></i>
+                <input type="text" id="link" name="link" placeholder="Enter MPD or HLS link" value="https://i-cdn-0.kioled326aps.com/stream2/i-cdn-0/f74771572f69aeee5c1a895f0da9b756/MJTMsp1RshGTygnMNRUR2N2MSlnWXZEdMNDZzQWe5MDZzMmdZJTO1R2RWVHZDljekhkSsl1VwYnWtx2cihVT2plaRFTTyk1dZpGar10RGpmWqJlaOdkWqlleZBTTy0UeZpmUo1ERJRzTE1UP:1734947025:103.10.28.198:196476c6a9fbea5db9f6817a8c2e01ef5ae5ec9278bd63355563ef57072fe035/index.m3u8
+                ">
+            </div>
+
+            
+
+            <!-- <div class="input-group">
+                <i class="fas fa-key"></i>
+                <input type="text" id="clearKeyPair" name="clearKeyPair" placeholder="Enter Clear Key ID and Key (e.g., keyId:key)">
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="text" id="widevineLicenseUrl" name="widevineLicenseUrl" placeholder="Enter Widevine License URL (optional)">
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-link"></i>
+                <input type="text" id="clearKeyUrl" name="clearKeyUrl" placeholder="Enter ClearKey URL (optional)">
+            </div> -->
+
+            <button type="submit">Play Video</button>
+        </form>
+    </div>
+
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
+
+    <script>
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+
+        // On page load, play the default video
+        window.onload = function () {
+            const defaultLink = document.getElementById('link').value;
+            playVideoWithLink(defaultLink);
+        };
+
+        function playVideo(event) {
+            event.preventDefault();
+            var link = document.getElementById('link').value;
+            playVideoWithLink(link);
+        }
+
+        function playVideoWithLink(link) {
+            var playerInstance = jwplayer("player");
+            playerInstance.setup({
+                file: link,
+                type: "hls", // HLS stream type
+                width: "100%",
+                aspectratio: "16:9",
+                autostart: true
+            });
+        }
+    </script>
+
+
+
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();  // Disable right-click menu
+    });
+    
+    // Disable keyboard shortcuts (Ctrl+U, Ctrl+S)
+    document.addEventListener('keydown', function (e) {
+        // Disable Ctrl + U (View Source)
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+            e.preventDefault();
+        }
+    
+        // Disable Ctrl + S (Save Page)
+        if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+        }
+    
+        // Disable F12 (Inspect Element / DevTools)
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
+    
+    // Disable selecting text
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();  // Disable text selection
+    });
+    </script>
+    
+
+</body>
+
+</html>

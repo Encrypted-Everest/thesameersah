@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon"
+        href="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000">
+
+    <title>Sameer</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background: #111;
+            color: #ff0000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #111;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu a {
+            padding: 10px 20px;
+            border-bottom: 1px solid #222;
+            text-align: center;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background: #222;
+            color: #ff0000;
+        }
+
+        /* Responsive Header */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Post Section */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .post {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .post:hover {
+            transform: scale(1.05);
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+            /* float: cen; */
+        }
+
+        .post-title {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            background: #111;
+            color: #ff0000;
+        }
+
+        /* Popup Styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            width: 90%;
+            max-width: 800px;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .popup-content iframe {
+            flex: 1;
+            border: none;
+        }
+
+        .popup-header {
+            padding: 15px;
+            background: #ff0000;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .popup-header .close {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Notice Section */
+        .notice {
+            background-color: #e22f2f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        /* Post Footer Section */
+        .post-footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+
+        /* Responsive Design for Notice and Footer */
+        @media (max-width: 768px) {
+
+            .notice p,
+            .post-footer p {
+                font-size: 16px;
+            }
+        }
+
+        .report-abuse-btn {
+            background-color: #ff0000;
+            /* Red button color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .report-abuse-btn:hover {
+            background-color: #cc0000;
+            /* Darker red when hovered */
+        }
+
+        .report-abuse-btn:focus {
+            outline: none;
+            /* Remove the outline on focus */
+        }
+
+        .notice {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            /* Ensure positioning context for the button */
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sameer</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Policy</a>
+            <a href="#">DMCA</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Policy</a>
+            <a href="#">DMCA</a>
+        </div>
+    </header>
+
+    <div class="notice">
+        <p>🚨 Notice: All episodes are for entertainment purposes only. Enjoy responsibly! 🚨</p>
+
+
+
+    </div>
+
+
+    <div class="container">
+        <!-- Posts -->
+
+
+
+
+
+        <!-- <div class="post" data-url="">
+            <a href="./elements.html"> <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1"
+                    alt="Post 1">
+                <div class="post-title">Beast Games - EPISODE 1 </div>
+            </a>
+        </div> -->
+
+        <div class="post" data-url="./ep1.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 1 </div>
+
+        </div>
+
+        <div class="post" data-url="./ep2.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 2 </div>
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 3 </div>
+
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 4 </div>
+
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 5 </div>
+
+        </div>
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 6 </div>
+
+        </div>
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 7 </div>
+
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 8 </div>
+
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 9 </div>
+
+        </div>
+
+        <div class="post" data-url="./commingsoon.html">
+            <img src="https://images.justwatch.com/backdrop/322160956/s640/season-1" alt="Post 1">
+            <div class="post-title">Beast Games - EPISODE 10 </div>
+
+        </div>
+
+
+
+
+        <!-- Add more posts as needed -->
+    </div>
+
+    <!-- <div class="notice">
+        <p>🚨  🚨</p>
+    </div> -->
+
+
+
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <b><span>BY: Sameer </span></b>
+                <span class="close" id="close-popup">&times;</span>
+            </div>
+            <iframe id="popup-video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sameer</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Popup functionality
+        const posts = document.querySelectorAll('.post');
+        const popup = document.getElementById('popup');
+        const popupVideo = document.getElementById('popup-video');
+        const closePopup = document.getElementById('close-popup');
+
+        posts.forEach(post => {
+            post.addEventListener('click', () => {
+                const url = post.getAttribute('data-url');
+                popupVideo.src = url;
+                popup.style.display = 'flex';
+            });
+        });
+
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupVideo.src = '';
+        });
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                popupVideo.src = '';
+            }
+        });
+    </script>
+
+
+    
+    
+    
+    
+    
+
+
+    
+
+</body>
+
+</html>
