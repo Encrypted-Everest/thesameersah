@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="iSameer Quiz Website - Operating Systems Quiz">
+    <title>iSameer - Week 8 Quiz</title>
+
+    <link rel="icon" type="image/x-icon"
+    href="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #444;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.8em;
+            font-weight: 600;
+            border-bottom: 3px solid #f8a488;
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            color: #f8a488;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .btn-fullscreen {
+            background-color: #f8a488;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-fullscreen:hover {
+            background-color: #d77d59;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.6em;
+            }
+
+            footer {
+                font-size: 1.2em;
+            }
+
+            iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.4em;
+            }
+
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            iframe {
+                height: 350px;
+            }
+        }
+
+        .notice {
+            background-color: #ffcccb;
+            color: #333;
+            padding: 10px 15px;
+            border-left: 4px solid #ff0000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h6><div class="logo">iSameer</div></h5>
+        <h5>Operating Systems Quiz - Week: <span id="week-number">8</span></h5>
+    </header>
+
+    <main>
+        <p>Take the quiz for Week <span id="week-number-display">8</span> on Operating Systems</p>
+
+        <div class="notice">
+            NOTE: Questions are from college notes. They may not appear in the exam. Study independently
+        </div>
+
+
+        <button class="btn-fullscreen" onclick="toggleFullScreen()">Full Screen</button>
+        <!-- Embed the quiz dynamically based on the week -->
+        <iframe id="quiz-iframe" src="https://quizizz.com/embed/quiz/6783c291b4b157c6444aa921" allowfullscreen></iframe>
+
+        <button class="btn-fullscreen" onclick="toggleFullScreen()">Full Screen</button>
+
+        <p class="note">Note: If the quiz does not load, ensure you are connected to the internet and try refreshing the page.</p>
+    </main>
+
+    <footer>
+        &copy; 2025 iSameer | All Rights Reserved
+    </footer>
+
+    <script>
+        // Fullscreen toggle function
+        function toggleFullScreen() {
+            const iframe = document.getElementById('quiz-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome and Safari
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,205 @@
-no preview
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="iSameer Quiz Website - Operating Systems Quiz">
+    <title>iSameer - Operating Systems Quiz</title>
+
+    <link rel="icon" type="image/x-icon"
+    href="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #444;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: 600;
+            border-bottom: 3px solid #f8a488;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .week-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .week-box {
+            background-color: #ffffff;
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            border: 2px solid #f8a488;
+            text-decoration: none;
+        }
+
+        .week-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: #f8a488;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.6em;
+            }
+
+            footer {
+                font-size: 1.2em;
+            }
+
+            .week-box {
+                font-size: 1em;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.4em;
+            }
+
+            .week-box {
+                font-size: 0.9em;
+                padding: 15px;
+            }
+
+            .week-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .notice {
+            background-color: #ffcccb;
+            color: #333;
+            padding: 10px 15px;
+            border-left: 4px solid #ff0000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        iSameer - Operating Systems Quiz
+    </header>
+
+    <main>
+        <h2>Week Wise Quiz for Operating Systems</h2>
+        <p>Click on a week to take the quiz:</p> <br>
 
 
+        <div class="notice">
+            Note: Questions are AI-generated which may include irrelevant details. Ignore as needed (Mainly from Logbook)
+        </div>
 
+        <div class="week-list">
+            <!-- Week 1 -->
+            <a class="week-box" href="./week-1.html">
+                Week 1 - NOS
+            </a>
+            <!-- Week 2 -->
+            <a class="week-box" href="./week-2.html">
+                Week 2 - W Server
+            </a>
+            <!-- Week 3 -->
+            <a class="week-box" href="./week3-p1.html">
+                Week 3 - PART 1 
+            </a>
 
+            <a class="week-box" href="./week3-p2.html">
+                Week 3 - PART 2
+            </a>
+            <!-- Week 4 -->
+            <a class="week-box" href="./week-4.html">
+                Week 4 
+            </a>
+            <!-- Week 5 -->
+            <a class="week-box" href="./week-5.html">
+                Week 5 
+            </a>
+            <!-- Week 6 -->
+            <a class="week-box" href="./week-6.html">
+                Week 6 
+            </a>
 
+            <a class="week-box" href="./week-7-p1.html">
+                Week 7 - PART 1 
+            </a>
 
+            <a class="week-box" href="./week-8.html">
+                Week 7 - PART 2 
+            </a>
+            <a class="week-box" href="./week-8.html">
+                Week 8 
+            </a>
+            <a class="week-box" href="./week-9-P1.html">
+                Week 9 - PART 1   
+            </a>
+
+            <a class="week-box" href="./week-9-P2.html">
+                Week 9 - PART 2
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 iSameer | All Rights Reserved
+    </footer>
+</body>
+
+</html>
